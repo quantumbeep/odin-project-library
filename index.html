@@ -6,13 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="app.js"></script>
-</head>
-<body>
-    <button onclick="newBook()" class="add-book">New Book</button>
-    <button onclick="showBooks()" class="add-book">Submit</button>
-    <ul class="list">
-    </ul>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <button class="modal-button">Add Book+</button>
+
+    <div class="modal">
+      <div class="modal-form">
+        <span class="close-button">&times;</span>
+        <p class="modal-text">this is text inside the modal</p>
+        <form>
+          <div class="input-wrapper">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              data-attribute="myLibrary"
+            />
+          </div>
+          <div class="input-wrapper">
+            <label for="pageCount">Page Count</label>
+            <input type="number" name="pageCount" id="pageCount" />
+          </div>
+          <div class="input-wrapper">
+            <label for="readStatus">Read Already?</label>
+            <input type="checkbox" name="readStatus" id="readStatus" />
+          </div>
+        </form>
+        <button onclick="addBook()" class="add-book">Submit</button>
+      </div>
+    </div>
+
     <div>List of Books</div>
-</body>
+    <ul class="list">
+      <li class="list-item">Sample Book</li>
+    </ul>
+  </body>
 </html>
