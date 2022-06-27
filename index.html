@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <button class="modal-button">Add Book+</button>
+    <button class="modal-button">Add Book</button>
 
     <div class="modal">
       <div class="modal-form">
         <span class="close-button">&times;</span>
-        <p class="modal-text">this is text inside the modal</p>
+        <p class="modal-text">Fill in the details below and click Submit</p>
         <form>
           <div class="input-wrapper">
             <label for="title">Title</label>
@@ -30,11 +31,11 @@
             <input type="number" name="pageCount" id="pageCount" />
           </div>
           <div class="input-wrapper">
-            <label for="readStatus">Read Already?</label>
+            <label for="readStatus">Check the box if you finished reading:</label>
             <input type="checkbox" name="readStatus" id="readStatus" />
           </div>
         </form>
-        <button onclick="addBook()" class="add-book">Submit</button>
+        <button onclick="addBook()" class="submit-button">Submit</button>
       </div>
     </div>
 

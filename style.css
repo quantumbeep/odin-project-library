@@ -1,6 +1,7 @@
 body {
   display: grid;
   place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .modal {
@@ -20,33 +21,62 @@ body {
   display: grid;
   place-items: center;
   background-color: #fefefe;
-  border-radius: 2rem;
-  margin: 15% auto;
+  border-radius: 10px;
+  margin: 20% auto;
   padding: 20px;
   border: 1px solid #888;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
-  width: 80%;
+  width: 50%;
 }
 
 /* The Close Button */
-.close {
+.close-button {
   color: #aaa;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
+  justify-self: end;
 }
 
-.close:hover,
-.close:focus {
+.close-button:hover,
+.close-button:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
 
 .list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.list-item {
+  margin: 10px 0;
 }
 
 .input-wrapper {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 10px;
+}
+
+.modal-button,
+.submit-button {
+  margin: 30px 0;
+  height: auto;
+  width: 150px;
+  padding: 1rem;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  transition: all 100ms ease-in-out;
+}
+.modal-button:hover,
+.submit-button:hover {
+  background-color: rgb(39, 122, 155);
+  color: #fefefe;
 }

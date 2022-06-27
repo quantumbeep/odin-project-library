@@ -6,12 +6,87 @@ const myLibrary = [
   },
   {
     title: 'Book Title',
-    pageCount: 186,
+    pageCount: 99,
     readStatus: false,
   },
   {
-    title: 'Interesting  Title',
-    pageCount: 186,
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
+    readStatus: true,
+  },
+  {
+    title: 'Documentation',
+    pageCount: 25,
     readStatus: true,
   },
 ];
@@ -73,6 +148,8 @@ const addBook = () => {
     myLibrary.push(book);
     console.log(`Current library: ${myLibrary}`);
     clearForm();
+    document.querySelector('submit-button')
+    
     alert('book added!');
   } else {
     alert('missing fields');
@@ -82,34 +159,48 @@ const addBook = () => {
 
 const createCard = (book, i) => {
   const cardContainer = document.createElement('li');
-  cardContainer.setAttribute('data-book-id', i);
   const cardTitle = document.createElement('p');
   const cardPageCount = document.createElement('p');
   const cardReadStatus = document.createElement('input');
   const cardReadStatusLabel = document.createElement('label');
-  cardReadStatus.setAttribute('type', 'checkbox');
   const deleteButton = document.createElement('button');
+
+  cardContainer.classList.add('list-item');
+
+  cardContainer.setAttribute('data-book-id', i);
+  cardReadStatus.setAttribute('type', 'checkbox');
   deleteButton.dataset.bookId = i;
   cardContainer.dataset.bookId = i;
 
   cardContainer.style.display = 'grid';
-  cardContainer.style.padding = '5px';
+  cardContainer.style.padding = '8px';
   cardContainer.style.border = '2px solid black';
-  cardContainer.style.borderRadius = '1rem';
+  cardContainer.style.borderRadius = '10px';
+  // cardContainer.children.style.background = 'white';
   cardTitle.style.background = 'lightgray';
   cardPageCount.style.background = 'lightgray';
   cardReadStatus.style.background = 'lightgray';
+
   cardReadStatus.checked = book.readStatus;
-  cardReadStatusLabel.textContent = cardReadStatus.checked ? 'Yes' : 'No';
+  cardReadStatusLabel.textContent = `Finished reading? ${
+    cardReadStatus.checked ? 'Yes' : 'No'
+  }`;
+  cardContainer.style.backgroundColor = cardReadStatus.checked
+    ? 'lightgreen'
+    : 'pink';
   cardReadStatus.onclick = () => {
-    cardReadStatusLabel.textContent = cardReadStatus.checked ? 'Yes' : 'No';
+    cardReadStatusLabel.textContent = `Finished reading? ${
+      cardReadStatus.checked ? 'Yes' : 'No'
+    }`;
+    cardContainer.style.backgroundColor = cardReadStatus.checked
+      ? 'lightgreen'
+      : 'pink';
   };
 
   cardTitle.textContent = book.title;
   cardPageCount.textContent = `Pages: ${book.pageCount}`;
 
   deleteButton.textContent = 'DELETE';
-
   deleteButton.onclick = () => {
     const itemToDelete = document.querySelector(`[data-book-id="${i}"]`);
     itemToDelete.remove();
@@ -119,8 +210,8 @@ const createCard = (book, i) => {
   cardContainer.append(cardTitle);
   cardContainer.append(cardPageCount);
   cardContainer.append(cardReadStatus);
-  cardContainer.append(deleteButton);
   cardContainer.append(cardReadStatusLabel);
+  cardContainer.append(deleteButton);
 };
 
 const showBooks = () => {
@@ -131,3 +222,4 @@ const showBooks = () => {
 };
 
 showBooks();
+console.log(myLibrary);
